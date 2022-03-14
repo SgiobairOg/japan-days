@@ -6,7 +6,6 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "postbuild": "node ./postbuild.mjs -path https://sgiobairog.github.io/japan-days/",
     "preview": "astro preview"
   },
   "devDependencies": {
