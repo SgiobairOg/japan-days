@@ -9,6 +9,10 @@
   font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
 }
 
+html {
+  background-color: var(--color-background)
+}
+
 body {
   padding: 4rem 2rem;
   width: 100%;
@@ -24,6 +28,11 @@ body {
 h2, p {
   margin-bottom: 1rem;
   line-height: 1.5;
+}
+
+ruby > rt {
+  opacity: 60%;
+  font-size: 45%;
 }
 
 
