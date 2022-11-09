@@ -1,0 +1,48 @@
+---
+
+  import { Markdown } from 'astro/components';
+  import DateEntry from './DateEntry.astro';
+
+  interface MarkdownDateFrontmatter {
+    character: string;
+    numericOrder: number;
+    ruby: string;
+  }
+
+
+  // Data Fetching: List all Markdown posts in the repo.
+  let allDates = Astro.fetchContent<MarkdownDateFrontmatter>('./../pages/dates/*.md');
+  allDates.sort((a, b) => a.numericOrder - b.numericOrder);
+
+---
+
+<section class="dates">
+  <Markdown>
+    ## Dates
+    In English, you're used to seeing 'th' when talking about the date. The 4th, the 5th, the 6th, etc. In Japanese however, 
+    you'll be seeing '日', pronounced 'nichi' when talking about the date. 4日, 5日, 6日, etc. But just like in English,
+    the endings aren't all the same, despite their appearance. These irregular endings are shown below.
+  </Markdown>
+  <ul class="dates__list">
+    {allDates.map(date => <DateEntry date={date}/>)}
+  </ul>
+</section>
+
+<style>
+  .dates__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+  }
+
+  @media only screen and (orientation: landscape) and (min-width: 1024px) {
+    .dates {
+      grid-area: 2 / 8 / 7 / 13;
+    }
+  }
+</style>

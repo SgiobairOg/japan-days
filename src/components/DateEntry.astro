@@ -1,0 +1,29 @@
+---
+  export interface Props {
+    date: any;
+  }
+  const { date } = Astro.props;
+---
+
+  <li class="date__entry" data-order="{date.numericOrder}">
+    <div class="date-entry__character">
+      <ruby class="date-entry__text">{date.character}<rt class="date-entry__ruby">{date.ruby}</rt></ruby>
+    </div>
+  </li>
+
+  <style>
+    .date-entry__character {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .date-entry__text {
+      font-size: 2.5rem;
+      font-weight: 900;
+    }
+    .date-entry__ruby {
+      font-size: 1rem;
+      font-weight: 900;
+    }
+  </style>

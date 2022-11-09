@@ -1,0 +1,18 @@
+---
+import { Markdown } from 'astro/components';
+---
+<section class="months">
+  <Markdown>
+    ## Months
+
+    The months are pretty straightforward. You just say the number of the month followed by '月', pronounced gatsu, and you're done. No extra symbols or variations. So for example '1月' is January, '2月' is February, and so on.
+  </Markdown>
+</section>
+
+<style>
+  @media only screen and (orientation: landscape) and (min-width: 1024px) {
+    .months {
+      grid-area: 2 / 1 / 7 / 3;
+    }
+  }
+</style>

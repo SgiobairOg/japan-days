@@ -1,0 +1,47 @@
+---
+
+  import { Markdown } from 'astro/components';
+  import DayEntry from './DayEntry.astro';
+
+  interface MarkdownDateFrontmatter {
+    character: string;
+    numericOrder: number;
+    ruby: string;
+  }
+
+
+  // Data Fetching: List all Markdown posts in the repo.
+  let allDays = Astro.fetchContent<MarkdownDateFrontmatter>('./../pages/days/*.md');
+  allDays.sort((a, b) => a.numericOrder - b.numericOrder);
+
+---
+
+<section class="days">
+  <Markdown>
+    ## Days
+    In Japanese the days of the week are named for the Chinese philosphies of yin and yang and the five elements of Taoism. The Japanese adopted a Gregorian calendar system in the early 20th century but they already had a seven-day system.
+  </Markdown>
+  <ul class="days__list">
+    {allDays.map(day => <DayEntry day={day}/>)}
+  </ul>
+</section>
+
+<style>
+  .days__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+  }
+
+
+  @media only screen and (orientation: landscape) and (min-width: 1024px) {
+    .days {
+      grid-area: 2 / 3 / 7 / 8;
+    }
+  }
+</style>
