@@ -107,6 +107,8 @@ const shiftCharacter = delta => char => String.fromCharCode(char.charCodeAt(0) +
 
 export default {
   setup() {
+    console.log('Nani the fuck?');
+
     const subjectDay = ref(0);
 
     const date = computed(() => {
