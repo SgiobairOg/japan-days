@@ -177,7 +177,7 @@ export default {
 
     const Month = () => {
       console.log('Month string:', date.value, date.value.getMonth(), `${date.value.getMonth()}<ruby>月<rt>がつ</rt></ruby>`)
-      console.log('Shifted string:', `${date.value.getMonth()}<ruby>月<rt>がつ</rt></ruby>`.replace(/[0-9]{1}/g, shiftCharacter(0xFEE0));)
+      console.log('Shifted string:', `${date.value.getMonth()}<ruby>月<rt>がつ</rt></ruby>`.replace(/[0-9]{1}/g, shiftCharacter(0xFEE0)))
       return `${date.value.getMonth()}<ruby>月<rt>がつ</rt></ruby>`
         .replace(/[0-9]{1}/g, shiftCharacter(0xFEE0));
     };
