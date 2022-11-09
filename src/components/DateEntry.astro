@@ -5,9 +5,9 @@
   const { date } = Astro.props;
 ---
 
-  <li class="date__entry" data-order="{date.numericOrder}">
+  <li class="date__entry" data-order="{date.frontmatter.numericOrder}">
     <div class="date-entry__character">
-      <ruby class="date-entry__text">{date.character}<rt class="date-entry__ruby">{date.ruby}</rt></ruby>
+      <ruby class="date-entry__text">{date.frontmatter.character}<rt class="date-entry__ruby">{date.frontmatter.ruby}</rt></ruby>
     </div>
   </li>
 

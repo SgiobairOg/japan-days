@@ -5,9 +5,9 @@
   const { day } = Astro.props;
 ---
 
-  <li class="day__entry" data-order="{day.numericOrder}">
+  <li class="day__entry" data-order="{day.frontmatter.numericOrder}">
     <div class="day-entry__character">
-      <ruby class="day-entry__text">{day.character}<rt class="day-entry__ruby">{day.ruby}</rt></ruby>
+      <ruby class="day-entry__text">{day.frontmatter.character}<rt class="day-entry__ruby">{day.frontmatter.ruby}</rt></ruby>
       <span class="day-entry__meaning">{day.meaning}</span>
     </div>
   </li>

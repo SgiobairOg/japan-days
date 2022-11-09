@@ -1,18 +1,11 @@
 ---
 
-  import { Markdown } from 'astro/components';
+  import Markdown from '@astrojs/markdown-component';
   import DateEntry from './DateEntry.astro';
 
-  interface MarkdownDateFrontmatter {
-    character: string;
-    numericOrder: number;
-    ruby: string;
-  }
-
-
   // Data Fetching: List all Markdown posts in the repo.
-  let allDates = Astro.fetchContent<MarkdownDateFrontmatter>('./../pages/dates/*.md');
-  allDates.sort((a, b) => a.numericOrder - b.numericOrder);
+  let allDates = await Astro.glob('./../pages/dates/*.md');
+  allDates.sort((a, b) => a.frontmatter.numericOrder - b.frontmatter.numericOrder);
 
 ---
 
